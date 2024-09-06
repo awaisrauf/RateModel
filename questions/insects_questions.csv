@@ -1,0 +1,6 @@
+question_id,question_text,model1,model2
+1,"What diseasse is affecting my plant and what is ands sds sdsdsdsdfs sdfsdfsdf sdlfsd fls.","Text for model 1, question 1","Beetles are insects from the order Coleoptera, known for their hard, protective wing cases called elytra. They are one of the largest and most diverse groups of animals, with over 350,000 species described. Beetles play various ecological roles, including decomposing organic matter and serving as prey for other animals. Their adaptations and diversity make them a fascinating subject of study in entomology."
+2,"Question 1","Text for model 1, question 2","Text for model 2, question 2"
+3,"Question 1","Text for model 1, question 3","Text for model 2, question 3"
+4,"Question 1","Text for model 1, question 3","Text for model 2, question 3"
+5,"Question 1","Text for model 1, question 3","Text for model 2, question 3"
