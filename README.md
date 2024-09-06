@@ -4,31 +4,31 @@ A simple Flask web interface that lets users rate answers to questions using two
 
 ## Run
 
-Add question files in the questions folder with names in the file options on the `name.html`
+1. Add question files in the questions folder with names in the file options on the `name.html`
 
-```bash
-<option_name>_questions.csv
-```
+    ```bash
+    <option_name>_questions.csv
+    ```
 
-and format
+    and format
 
-```csv
-question_id,question_text,model1,model2
-```
+    ```csv
+    question_id,question_text,model1,model2
+    ```
 
-Install environment and packages.
+2. Install environment and packages.
 
-```bash
-conda create -n "evals" python=3.8
-conda activate evals
-pip install -r requirements.txt
-```
+    ```bash
+    conda create -n "evals" python=3.8
+    conda activate evals
+    pip install -r requirements.txt
+    ```
 
-Run the app
+3. Run the app
 
-```bash
-python app.py
-```
+    ```bash
+    python app.py
+    ```
 
 ## Usage
 
