@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for
 import csv
 from datetime import datetime
 import os
-import argparse
 
 app = Flask(__name__)
 global_name = None
@@ -20,7 +19,7 @@ def load_questions(question_file):
 # Save the rating to a CSV file with a timestamp in the name
 def save_rating(preference, question_id):
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    filename = f"ratings/ratings_{global_name}_{global_file_name}_{timestamp}.csv"
+    filename = f"ratings/ratings_{global_name}_{global_file_name}.csv"
     file_exists = os.path.isfile(filename)
 
     with open(filename, 'a', newline='') as csvfile:
