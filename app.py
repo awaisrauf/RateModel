@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import csv
 from datetime import datetime
 import os
@@ -42,16 +42,22 @@ def get_name():
         return redirect(url_for('index'))
     return render_template('name.html')
 
+@app.route('/restart')
+def restart():
+    global global_file_name
+    global_file_name = None
+    return redirect(url_for('get_name')) 
+
 def get_next_question_id():
-    # Track the question ID within the session
     if 'current_question_id' not in get_next_question_id.__dict__:
         get_next_question_id.current_question_id = 0  # Initialize the question ID
     return get_next_question_id.current_question_id
 
 @app.route('/rate', methods=['GET', 'POST'])
 def index():
+    # Redirect to form page if name is not provided
     if not global_name or not global_file_name:
-        return redirect('/')  # Redirect to form page if name is not provided
+        return redirect('/')  
     
     questions = load_questions("questions/"+global_file_name+"_questions.csv")
     question_id = get_next_question_id()
@@ -62,12 +68,15 @@ def index():
             return "No preference selected", 400
 
         current_question = questions[question_id]
+        print(current_question)
         save_rating(preference, current_question['question_id'])
         question_id += 1
         get_next_question_id.current_question_id = question_id
 
         if question_id >= len(questions):
-            return "Thank you for completing the ratings...!"
+            return render_template('complete.html')  # Render the completion template
+
+
 
     current_question = questions[question_id]
     return render_template('index.html', question=current_question, name=global_name)

@@ -31,9 +31,9 @@
 
         .question-id {
             text-align: center;
-            font-weight: bold;
+            /* font-weight: bold; */
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .model-container {
@@ -54,7 +54,7 @@
 
         textarea {
             width: 100%;
-            height: 150px;
+            height: 200px;
             margin-top: 5px;
             padding: 10px;
             font-size: 16px;
@@ -74,7 +74,7 @@
             padding: 8px;
             font-size: 14px;
             color: #ffffff;
-            background-color: #28a745;
+            background-color: #7028a7;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -92,9 +92,10 @@
 <body>
     <div class="container">
         <h1>Rate the Model</h1>
-        <center><h3>Welcome to Model ratings... {{ name }}</h3></center>
+        <center><h4>Welcome to Model ratings, {{ name }}</h4></center>
         
-        <div class="question-id">Question {{ question['question_id'] }}: {{ question['question_text'] }}</div>
+        <div class="question-id"><b>Question {{ question['question_id'] }}:</b> {{ question['question_text'] }}</div>
+        <div class="question-id"><b>Ground Truth Class: </b> {{ question['class_name'] }}</div>
         <form method="POST">
             <div class="model-container">
                 <div class="model-box">
@@ -111,8 +112,8 @@
                 </div>
             </div>
             <div class="preference-group">
-                <button type="submit" class="preference-button" name="preference" value="model1">Prefer Model 1</button>
-                <button type="submit" class="preference-button" name="preference" value="model2">Prefer Model 2</button>
+                <button type="submit" class="preference-button" name="preference" value="model1">➕ Prefer Model 1</button>
+                <button type="submit" class="preference-button" name="preference" value="model2">➕ Prefer Model 2</button>
             </div>
         </form>
     </div>
